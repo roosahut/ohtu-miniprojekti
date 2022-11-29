@@ -2,10 +2,11 @@ class ReferenceRepository:
     def __init__(self):
         self.references = []
 
-    def create_reference(self, reference):
-        existing = self.find_by_key(reference.key)
+    def add_reference(self, reference):
+        existing = self.find_by_key(reference.values.key)
         if existing:
-            raise Exception(f'Viite avaimella {reference.key} on jo olemassa')
+            raise Exception(
+                f'Viite avaimella {reference.values.key} on jo olemassa')
 
         self.references.append(reference)
 
@@ -13,7 +14,7 @@ class ReferenceRepository:
 
     def find_by_key(self, key):
         references_with_key = [
-            reference.key for reference in self.references if reference.key == key]
+            reference.values.key for reference in self.references if reference.values.key == key]
 
         if references_with_key > 0:
             return references_with_key[0]
