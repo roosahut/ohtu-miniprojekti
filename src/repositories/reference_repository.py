@@ -3,10 +3,11 @@ class ReferenceRepository:
         self.references = []
 
     def add_reference(self, reference):
-        existing = self.find_by_key(reference.values.key)
+        key = list(reference.values.keys())[0]
+        existing = self.find_by_key(reference.values.keys())
         if existing:
             raise Exception(
-                f'Viite avaimella {reference.values.key} on jo olemassa')
+                f'Viite avaimella {key} on jo olemassa')
 
         self.references.append(reference)
 
@@ -14,9 +15,9 @@ class ReferenceRepository:
 
     def find_by_key(self, key):
         references_with_key = [
-            reference.values.key for reference in self.references if reference.values.key == key]
-
-        if references_with_key > 0:
+            reference.values.keys() for reference in self.references if reference.values.keys() == key]
+        
+        if len(references_with_key) > 0:
             return references_with_key[0]
 
         return None
