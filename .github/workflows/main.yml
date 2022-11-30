@@ -18,9 +18,13 @@ jobs:
           python-version: 3.8
       - name: Install Poetry
         run: pip install poetry
-      - name: install invoke
-        run: pip install invoke
       - name: Install dependencies
         run: poetry install
-      - name: Run tests
-        run: poetry run invoke test
+      - name: Run coverage tests
+        run: poetry run invoke coverage-report
+      - name: Coverage report to Codecov
+        run: bash <(curl -s https://codecov.io/bash)
+      - name: Run pylint tests
+        run: poetry run invoke lint
+      - name: Run Robot Framework
+        run: poetry run invoke robot-test
