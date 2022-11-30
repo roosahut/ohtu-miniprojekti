@@ -12,3 +12,4 @@ Koodin ylläpitäminen on hyvää:
 
 Kohtuullinen testikattavuus
 - yksikkötestejä ja robot-testejä
+ 
