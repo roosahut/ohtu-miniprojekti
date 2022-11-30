@@ -13,3 +13,4 @@ Koodin ylläpitäminen on hyvää:
 Kohtuullinen testikattavuus
 - yksikkötestejä ja robot-testejä
  
+![GHA workflow badge](https://github.com/roosahut/ohtu-miniprojekti/workflows/CI/badge.svg)
