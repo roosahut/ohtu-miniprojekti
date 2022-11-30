@@ -9,6 +9,6 @@ class ReferenceService:
         reference = self.reference_repository.add_reference(Reference(values))
 
         return reference
-    
+
     def find_all(self):
         return self.reference_repository.find_all()
