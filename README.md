@@ -4,9 +4,9 @@
  
 ## Definition of Done
 
-Koodi vastaa kirjoitettuja hyväksymiskriteerejä
+Koodin toiminnallisuus vastaa yhdessä sovittuja kirjoitettuja hyväksymiskriteerejä
 
-Koodin ylläpitäminen on hyvää (niin hyvää kuin saadaan):
+Koodin ylläpitäminen on hyvää:
 - Järkevä nimeäminen
 - Selkeä arkkitehtuuri
 
