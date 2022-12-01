@@ -12,3 +12,6 @@ class ReferenceService:
 
     def find_all(self):
         return self.reference_repository.find_all()
+
+    def find_by_key(self, key):
+        return self.reference_repository.find_by_key(key)
