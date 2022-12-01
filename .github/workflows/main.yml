@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Run coverage tests
-        run: poetry run invoke coverage-report
+        run: poetry run invoke coverage
       - name: Run Robot Framework
         run: poetry run invoke robot-test
       - name: Coverage report
