@@ -15,6 +15,8 @@ Kohtuullinen testikattavuus
  
 ![GHA workflow badge](https://github.com/roosahut/ohtu-miniprojekti/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/roosahut/ohtu-miniprojekti/branch/main/graph/badge.svg?token=Um66kxj2Ox)](https://codecov.io/gh/roosahut/ohtu-miniprojekti)
+## Dokumentaatio
+- [Käyttöohje](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/instructions.md)<br>
 
 ## Sovelluksen asennus
 - Riippuvuudet asennetaan komennolla: <h3><pre>poetry install</pre></h3>
