@@ -12,7 +12,7 @@ Käyttäjä voi lisätä uuden viitteen komennolla lisaa, tulostaa jo lisätyt v
 ## Lisää viite
 Käyttäjän kirjottessa terminaaliin komennon lisää, avautuu seuraavanlainen näkymä: <br>
 ![add](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/pictures/lisaa.png) <br>
-Käyttäjältä kysytään seuraavia tietoja: viiteavain, kirjoittaja, teoksen nimi, vuosi ja julkaisija. Kaikki kentät tulee ohjelmiston tässä vaiheessa täyttää. <br>
+Käyttäjältä kysytään seuraavia tietoja: viiteavain, kirjoittaja, teoksen nimi, vuosi ja julkaisija. Kaikkiin kenttiin tulee täyttää jotakin. <br>
 
 ## Lue viitteet
 Käyttäjä voi lukea lisäämänsä viitteet kirjoittamalla terminaaliin komennon lue <br>
