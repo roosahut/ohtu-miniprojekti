@@ -14,3 +14,4 @@ Kohtuullinen testikattavuus
 - yksikkötestejä ja robot-testejä
  
 ![GHA workflow badge](https://github.com/roosahut/ohtu-miniprojekti/workflows/CI/badge.svg)
+[![codecov](https://codecov.io/gh/roosahut/ohtu-miniprojekti/branch/main/graph/badge.svg?token=Um66kxj2Ox)](https://codecov.io/gh/roosahut/ohtu-miniprojekti)
