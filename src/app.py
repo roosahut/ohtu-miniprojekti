@@ -25,13 +25,23 @@ class App:
                 continue
 
     def _read_values(self):
-        key = self.io.read("Viiteavain: ")
+        key = self._ask_for_key_loop()
         author = self.io.read("Kirjoittaja: ")
         name = self.io.read("Teoksen nimi: ")
         year = self.io.read("Vuosi: ")
         publisher = self.io.read("Julkaisija: ")
 
         return key, author, name, year, publisher
+
+    def _ask_for_key_loop(self):
+        while True:
+            key = self.io.read("Viiteavain: ")
+            if not key:
+                print("Lisää jokin avain viitteelle, esim. 'abc17' ")
+                continue
+            else:
+                return key
+
 
     def _view_references(self):
         references = self.reference_service.find_all()
