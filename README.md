@@ -15,3 +15,11 @@ Kohtuullinen testikattavuus
  
 ![GHA workflow badge](https://github.com/roosahut/ohtu-miniprojekti/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/roosahut/ohtu-miniprojekti/branch/main/graph/badge.svg?token=Um66kxj2Ox)](https://codecov.io/gh/roosahut/ohtu-miniprojekti)
+
+## Sovelluksen asennus
+- Riippuvuudet asennetaan komennolla: <h3><pre>poetry install</pre></h3>
+
+## Komentorivitoiminnot
+- Ohjelma käynnistyy komennolla: <h3><pre>poetry run invoke start</pre></h3>
+- Testit voi jaa komennoilla: <h3><pre>poetry run invoke test</pre></h3> <h3><pre>poetry run invoke robot-test</pre></h3>
+- Testikattavuusraportin saa komennolla: <h3><pre>poetry run invoke coverage-report</pre></h3>
