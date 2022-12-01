@@ -25,19 +25,31 @@ class App:
                 continue
 
     def _read_values(self):
-        key = self._ask_for_key_loop()
-        author = self.io.read("Kirjoittaja: ")
-        name = self.io.read("Teoksen nimi: ")
-        year = self.io.read("Vuosi: ")
-        publisher = self.io.read("Julkaisija: ")
+        key = self._ask_for_text_loop("Viiteavain: ", "Lisää jokin avain viitteelle, esim. 'abc17' ")
+        author = self._ask_for_text_loop("Kirjoittaja: ", "Lisää kirjoittaja viitteelle")
+        name = self._ask_for_text_loop("Teoksen nimi: ", "Lisää kirjan nimi")
+        year = self._ask_for_year_loop()
+        publisher = self._ask_for_text_loop("Julkaisija: ", "Lisää julkaisija")
 
         return key, author, name, year, publisher
 
-    def _ask_for_key_loop(self):
+    def _ask_for_text_loop(self, key, exception):
         while True:
-            key = self.io.read("Viiteavain: ")
+            key = self.io.read(key)
             if not key:
-                print("Lisää jokin avain viitteelle, esim. 'abc17' ")
+                print(exception)
+                continue
+            if len(key)>150:
+                print("Syöte liian pitkä")
+                continue
+            else:
+                return key
+
+    def _ask_for_year_loop(self):
+        while True:
+            key = self.io.read("Vuosi: ")
+            if not key.isdigit():
+                print("Ilmoita vuosiluku numeroina")
                 continue
             else:
                 return key
