@@ -22,7 +22,9 @@ jobs:
         run: poetry install
       - name: Run coverage tests
         run: poetry run invoke coverage-report
-      - name: Coverage report to Codecov
-        run: bash <(curl -s https://codecov.io/bash)
       - name: Run Robot Framework
         run: poetry run invoke robot-test
+      - name: Coverage report
+        run: poetry run coverage xml
+      - name: Coverage report to Codecov
+        run: bash <(curl -s https://codecov.io/bash)
