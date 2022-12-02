@@ -9,9 +9,10 @@ Koodin toiminnallisuus vastaa yhdessä sovittuja kirjoitettuja hyväksymiskritee
 Koodin ylläpitäminen on hyvää:
 - Järkevä nimeäminen
 - Selkeä arkkitehtuuri
+- Koodi on jatkuvasti asiakkaan nähtävissä ja testien tila ilmenee CI-palvelun välityksellä
 
 Kohtuullinen testikattavuus
-- yksikkötestejä ja robot-testejä
+- yksikkötestejä n. 70% kattavuudella sekä robot-testejä soveltuvilta osin
  
 ![GHA workflow badge](https://github.com/roosahut/ohtu-miniprojekti/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/roosahut/ohtu-miniprojekti/branch/master/graph/badge.svg?token=Um66kxj2Ox)](https://codecov.io/gh/roosahut/ohtu-miniprojekti)
