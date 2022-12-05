@@ -1,0 +1,26 @@
+body {
+  margin: auto;
+  max-width: 60em;
+  font-family: 'Verdana', 'Arial', sans-serif;
+  background-color: #f7fffe;
+}
+
+.header {
+  background: rgb(112, 112, 112);
+  padding: 1em;
+  font-size: 1.5em;
+}
+
+.topnav {
+  background-color: rgb(112, 112, 112);
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}

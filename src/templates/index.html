@@ -1,10 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
 {% if session.user_id %}
 
-Lue viite
-<a href="/logout">Logout</a>
+<div class="topnav">
+  <a href="/logout">Logout</a>
+</div>
+
+Luo viite
 
 {% else %}
-<a href="/login">Login</a>
-<a href="/register">Register</a>
+
+<div class="topnav">
+  <a href="/login">Login</a>
+  <a href="/register">Register</a>
+</div>
 
 {% endif %}
+
+{% endblock %}

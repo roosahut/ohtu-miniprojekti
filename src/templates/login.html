@@ -1,3 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="topnav">
+  <a href="/">Front page</a>
+  <a href="/register">Register</a>
+</div>
+
 <form action="/login" method="post">
   <p>
     Username: <input type="text" name="username">
@@ -7,3 +15,5 @@
   </p>
   <input type="submit" value="Login">
 </form>
+
+{% endblock %}

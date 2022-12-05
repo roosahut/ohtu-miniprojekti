@@ -2,7 +2,6 @@ import os
 from app import db
 from flask import session, abort, request
 from werkzeug.security import check_password_hash, generate_password_hash
-import logging
 
 
 def login(username, password):
@@ -28,7 +27,6 @@ def register(username, password):
         db.session.commit()
         return login(username, password)
     except:
-        logging.exception('paska')
         return False
 
 
