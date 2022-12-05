@@ -1,0 +1,9 @@
+{% if session.user_id %}
+
+Lue viite
+
+{% else %}
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+
+{% endif %}
