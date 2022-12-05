@@ -1,10 +1,13 @@
 from flask import Flask, render_template, request, redirect
 import string
-from config import SECRET_KEY
+from config import SECRET_KEY, DATABASE_URL
 import services.users as users
+from db import db
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+db.init_app(app)
 
 
 @app.get('/')
@@ -50,6 +53,14 @@ def reqister():
             return render_template('error.html', message='The registration was unsuccesful, try a different username')
 
         return redirect('/')
+    
+
+@app.route('/logout')
+def logout():    
+    users.logout()
+    
+    return redirect('/')
+
 
 
 if __name__ == "__main__":
