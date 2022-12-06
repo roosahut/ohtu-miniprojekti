@@ -27,3 +27,4 @@ Kohtuullinen testikattavuus
 - Ohjelma käynnistyy komennolla: <h3><pre>poetry run invoke start</pre></h3>
 - Testit voi jaa komennoilla: <h3><pre>poetry run invoke test</pre></h3> <h3><pre>poetry run invoke robot-test</pre></h3>
 - Testikattavuusraportin saa komennolla: <h3><pre>poetry run invoke coverage-report</pre></h3>
+
