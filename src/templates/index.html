@@ -7,8 +7,17 @@
 <div class="topnav">
   <a href="/logout">Logout</a>
 </div>
-
 Luo viite
+<form action="/add_reference" method="get">
+  <select name="add_refenrence" width="20">
+    <option value="Book">Book</option>
+    <option value="Article">Article</option>
+    <option value="Master thesis">Master thesis</option>
+    <option value="Misc">Misc</option>
+  </select>
+  <input type="submit" value="Lisää">
+</form>
+<a href="/get_references">Hae viitteet</a>
 
 {% else %}
 

@@ -53,15 +53,20 @@ def reqister():
             return render_template('error.html', message='The registration was unsuccesful, try a different username')
 
         return redirect('/')
-    
+
+@app.route('/add_refence', methods=['get'])
+def add_refence():
+    return redirect('/')
+
+@app.route('/get_references', methods=['get'])
+def get_references():
+    return redirect('/')
 
 @app.route('/logout')
 def logout():    
     users.logout()
     
     return redirect('/')
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
