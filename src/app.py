@@ -134,9 +134,12 @@ def add_inproceedings():
 
 
 
-@app.route('/get_references', methods=['get', 'post'])
-def get_references():
-    return redirect('/')
+@app.route('/view_references', methods=['get', 'post'])
+def view_references():
+    if request.method == "GET":
+        articles = ref.get_references()
+        
+        return render_template('view_references.html', articles=articles)
 
 
 @app.route('/logout')

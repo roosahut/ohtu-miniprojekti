@@ -44,3 +44,10 @@ def add_inproceedings(user, ref_key, author, title, booktitle, year):
     except:
         return False
     
+def get_references():
+    try:
+        articles = db.session.execute('SELECT * FROM articles').fetchall()
+        return articles       
+    except:
+        return False
+    

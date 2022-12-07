@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+{% if session.user_id %}
+
+<div class="topnav">
+  <a href="/logout">Logout</a>
+</div>
+
+<h2> References </h2>
+
+<h3> Articles </h3>
+{% if articles %}
+<table style="width: 50%">
+    <thead style="text-align:left">
+        <tr>
+            <th>Reference key</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Journal</th>
+            <th>Year</th>
+            <th>Volume</th>
+        </tr>
+    </thead>
+    {% for article in articles %}
+    <tbody>
+        <tr>
+            <td>{{article.ref_key}}</td>
+            <td>{{article.author}}</td>
+            <td>{{article.title}}</td>
+            <td>{{article.journal}}</td>
+            <td>{{article.year}}</td>
+            <td>{{article.volume}}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+    {% endif %}
+
+    
+
+
+{% else %}
+
+<div class="topnav">
+  <a href="/login">Login</a>
+  <a href="/register">Register</a>
+</div>
+
+{% endif %}
+
+
+
+{% endblock %}
