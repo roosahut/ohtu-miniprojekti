@@ -52,13 +52,23 @@ def reqister():
         if not users.register(username, password1):
             return render_template('error.html', message='The registration was unsuccesful, try a different username')
 
-        return redirect('/')
+        return redirect('/'),
 
-@app.route('/add_refence', methods=['get'])
+@app.route('/add_reference', methods=['get', 'post'])
 def add_refence():
-    return redirect('/')
+    reference_type = { 
+        'book': 'book.html',
+        'article':'article.html',
+        'master_thesis': 'master.html',
+        'inproceedings': 'inproceedings.html'
+    }
+    if request.method == 'GET':
+        ref_type = request.args['add_reference']
+        return render_template(reference_type[ref_type])
+    if request.method == 'POST':
+        'tänne ehkä lomakkeiden tietoja'
 
-@app.route('/get_references', methods=['get'])
+@app.route('/get_references', methods=['get', 'post'])
 def get_references():
     return redirect('/')
 

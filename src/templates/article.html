@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<br>
+<h2>Artricle</h2>
+
+<form action="/add_reference" method="post">
+    <p>
+        Viiteavain: <input type="text" name="ref_key">
+    </p>
+    <p>
+        Kirjailija: <input type="text" name="author">
+    </p>
+    <p>
+        Otsikko: <input type="text" name="title">
+    </p>
+    <p>
+        Julkaisu: <input type="text" name="journal">
+    </p>
+    <p>
+        Vuosi: <input type="text" name="year">
+    </p>
+    <p>
+        Määrä: <input type="text" name="year">
+    </p>
+    <input type="submit" value="Lisää">
+</form>
+
+
+{% endblock %}
