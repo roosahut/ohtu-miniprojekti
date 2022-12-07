@@ -137,7 +137,7 @@ def add_inproceedings():
 @app.route('/view_references', methods=['get', 'post'])
 def view_references():
     if request.method == "GET":
-        articles = ref.get_references()
+        articles = ref.get_references(users.user_id())
         
         return render_template('view_references.html', articles=articles)
 
