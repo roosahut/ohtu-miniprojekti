@@ -1,3 +1,4 @@
+import re
 from flask import Flask, render_template, request, redirect
 import string
 from config import SECRET_KEY, DATABASE_URL
@@ -37,10 +38,9 @@ def reqister():
         username = request.form['username']
         if len(username) < 4:
             return render_template('error.html', message='Username is too short, it should be at least 4 characters long')
-        characters = string.ascii_letters + string.digits + 'äåöÄÅÖ'
-        for i in username:
-            if i not in characters:
-                return render_template('error.html', message='Username must have only letters and numbers in it')
+        pattern = re.compile(r'[^\w\dåäöÅÄÖ]')
+        if not pattern.search(username):
+            return render_template('error.html', message='Username must have only letters and numbers in it')
 
         password1 = request.form['password1']
         password2 = request.form['password2']
