@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect
 import string
 from config import SECRET_KEY, DATABASE_URL
-import services.users as users
 from db import db
+import services.users as users
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
@@ -72,11 +72,13 @@ def add_refence():
 def get_references():
     return redirect('/')
 
+
 @app.route('/logout')
-def logout():    
+def logout():
     users.logout()
-    
+
     return redirect('/')
+
 
 if __name__ == "__main__":
     app.run(debug=True)

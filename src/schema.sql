@@ -21,7 +21,7 @@ CREATE TABLE articles (
     author TEXT,
     title TEXT,
     journal TEXT,
-    year INTEGER.
+    year INTEGER,
     volume INTEGER
 );
 

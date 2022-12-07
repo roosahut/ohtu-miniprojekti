@@ -136,6 +136,20 @@ docs = ["sphinx", "docutils (<0.18)"]
 test = ["objgraph", "psutil", "faulthandler"]
 
 [[package]]
+name = "gunicorn"
+version = "20.1.0"
+description = "WSGI HTTP Server for UNIX"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.extras]
+eventlet = ["eventlet (>=0.24.1)"]
+gevent = ["gevent (>=1.4.0)"]
+setproctitle = ["setproctitle"]
+tornado = ["tornado (>=0.2)"]
+
+[[package]]
 name = "importlib-metadata"
 version = "5.1.0"
 description = "Read metadata from Python packages"
@@ -444,7 +458,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-co
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "edfabef2ef7797408ba6fa1bf65847a00d6d97cdc5279d51821208de90706491"
+content-hash = "1240a0d7451ff0f5cae488804d0c128d6219f55cecc41abfe0fb163f078da51a"
 
 [metadata.files]
 astroid = []
@@ -458,6 +472,7 @@ exceptiongroup = []
 flask = []
 flask-sqlalchemy = []
 greenlet = []
+gunicorn = []
 importlib-metadata = []
 iniconfig = [
     {file = "iniconfig-1.1.1-py2.py3-none-any.whl", hash = "sha256:011e24c64b7f47f6ebd835bb12a743f2fbe9a26d4cecaa7f53bc4f35ee9da8b3"},
