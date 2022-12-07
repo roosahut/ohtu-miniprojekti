@@ -11,21 +11,21 @@
 
 <form action="/add_reference" method="post">
     <p>
-        Viiteavain: <input type="text" name="ref_key">
+        Reference key: <input type="text" name="ref_key">
     </p>
     <p>
-        Kirjailija: <input type="text" name="author">
+        Author: <input type="text" name="author">
     </p>
     <p>
-        Otsikko: <input type="text" name="title">
+        Title: <input type="text" name="title">
     </p>
     <p>
-        Julkaisija: <input type="text" name="journal">
+        Publisher: <input type="text" name="publisher">
     </p>
     <p>
-        Vuosi: <input type="text" name="year">
+        Year: <input type="number" name="year">
     </p>
-    <input type="submit" value="Lisää">
+    <input type="submit" value="Add reference">
 </form>
 
 {% endblock %}
