@@ -2,7 +2,7 @@
 
 [Product backlog](https://docs.google.com/spreadsheets/d/e/2PACX-1vTBRvMHFcpm47yrNZhur4q50_rPGXJ9hRW-U_Ia8FFg1hVNZNbn1Q6GyrQVcuvJ6rLPPdnbpsfF2DFl/pubhtml)
 
-[Linkki sovellukseen (ei vielä täysin toimiva)](https://viite-sovellus.fly.dev/)
+[Linkki sovellukseen (ei vielä täysin toimiva)](https://ohtu-references.fly.dev/)
  
 ## Definition of Done
 
