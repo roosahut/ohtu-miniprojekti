@@ -8,15 +8,6 @@
   <a href="/logout">Logout</a>
 </div>
 
-{% else %}
-
-<div class="topnav">
-  <a href="/login">Login</a>
-  <a href="/register">Register</a>
-</div>
-
-{% endif %}
-
 Luo viite
 <form action="/add_reference" method="get">
   <select name="add_reference" width="30">
@@ -28,5 +19,16 @@ Luo viite
   <input type="submit" value="Lisää">
 </form>
 <a href="/get_references">Hae viitteet</a>
+
+{% else %}
+
+<div class="topnav">
+  <a href="/login">Login</a>
+  <a href="/register">Register</a>
+</div>
+
+{% endif %}
+
+
 
 {% endblock %}
