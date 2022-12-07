@@ -7,7 +7,7 @@ CREATE TABLE users (
 CREATE TABLE books (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users,
-    ref_key TEXT,
+    ref_key TEXT UNIQUE,
     author TEXT,
     title TEXT,
     publisher TEXT,
@@ -17,7 +17,7 @@ CREATE TABLE books (
 CREATE TABLE articles (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users,
-    ref_key TEXT,
+    ref_key TEXT UNIQUE,
     author TEXT,
     title TEXT,
     journal TEXT,
@@ -28,7 +28,7 @@ CREATE TABLE articles (
 CREATE TABLE inproceedings (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users,
-    ref_key TEXT,
+    ref_key TEXT UNIQUE,
     author TEXT,
     title TEXT,
     booktitle TEXT,
@@ -38,7 +38,7 @@ CREATE TABLE inproceedings (
 CREATE TABLE masterthesis (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users,
-    ref_key TEXT,
+    ref_key TEXT UNIQUE,
     author TEXT,
     title TEXT,
     school TEXT,
