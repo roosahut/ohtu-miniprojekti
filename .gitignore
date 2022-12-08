@@ -6,3 +6,4 @@ output.xml
 log.html
 report.html
 .env
+.env.save
