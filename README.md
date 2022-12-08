@@ -21,11 +21,16 @@ Kohtuullinen testikattavuus
 
 ## Dokumentaatio
 - [Käyttöohje](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/instructions.md)<br>
+- [Retro1](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/retro1.md)<br>
+
+## Komentoritoiminnot
+<h2>Huom!</h2> 
+<h3><pre>Käyttäessä ohjelmaa paikallisesti omalla koneella, tulee tietokannan osoite määritellä .env-ympäristömuuttujaan, muuten
+ohjelma ei toimi.</pre></h3>
 
 ## Sovelluksen asennus
 - Riippuvuudet asennetaan komennolla: <h3><pre>poetry install</pre></h3>
 
-## Komentorivitoiminnot
 - Ohjelma käynnistyy komennolla: <h3><pre>poetry run invoke start</pre></h3>
 - Testit voi jaa komennoilla: <h3><pre>poetry run invoke test</pre></h3> <h3><pre>poetry run invoke robot-test</pre></h3>
 - Testikattavuusraportin saa komennolla: <h3><pre>poetry run invoke coverage-report</pre></h3>
