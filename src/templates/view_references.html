@@ -5,8 +5,8 @@
 {% if session.user_id %}
 
 <div class="topnav">
-  <a href="/logout">Logout</a>
-  <a href="/">Return</a>
+    <a href="/logout">Logout</a>
+    <a href="/">Return</a>
 </div>
 
 <h2> References </h2>
@@ -38,18 +38,28 @@
     {% endfor %}
     {% endif %}
 
-    
+    {% for article in articles %}
+    <code>
+    @article{ {{ article.ref_key }},
+    <p style="margin-left: 50px">author = { {{ article.author }} },</p>
+    <p style="margin-left: 50px">title = { {{ article.title }} },</p>
+    <p style="margin-left: 50px">journal = { {{ article.journal }} },</p>
+    <p style="margin-left: 50px">year = { {{ article.year }} },</p>
+    <p style="margin-left: 50px">volume = { {{ article.volume }} }</p>
+    }
+    </code>
+    {% endfor %}
 
 
-{% else %}
+    {% else %}
 
-<div class="topnav">
-  <a href="/login">Login</a>
-  <a href="/register">Register</a>
-</div>
+    <div class="topnav">
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    </div>
 
-{% endif %}
+    {% endif %}
 
 
 
-{% endblock %}
+    {% endblock %}

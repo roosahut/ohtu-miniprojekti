@@ -80,12 +80,12 @@ def add_book():
         title = request.form['title']
         publisher = request.form['publisher']
         year = request.form['year']
-        
+
         if not ref.add_book(users.user_id(), ref_key, author, title, publisher, year):
             return render_template('error.html', message='Reference adding failed, try again')
 
         return redirect('/')
-    
+
 
 @app.route('/add_article', methods=['get', 'post'])
 def add_article():
@@ -96,13 +96,13 @@ def add_article():
         journal = request.form['journal']
         year = request.form['year']
         volume = request.form['volume']
-        
+
         if not ref.add_article(users.user_id(), ref_key, author, title, journal, year, volume):
             return render_template('error.html', message='Reference adding failed, try again')
 
-        return redirect('/')   
-    
-    
+        return redirect('/')
+
+
 @app.route('/add_masterthesis', methods=['get', 'post'])
 def add_masterthesis():
     if request.method == "POST":
@@ -111,13 +111,13 @@ def add_masterthesis():
         title = request.form['title']
         school = request.form['school']
         year = request.form['year']
-        
+
         if not ref.add_masterthesis(users.user_id(), ref_key, author, title, school, year):
             return render_template('error.html', message='Reference adding failed, try again')
 
         return redirect('/')
-    
-    
+
+
 @app.route('/add_inproceedings', methods=['get', 'post'])
 def add_inproceedings():
     if request.method == "POST":
@@ -126,19 +126,18 @@ def add_inproceedings():
         title = request.form['title']
         booktitle = request.form['booktitle']
         year = request.form['year']
-        
+
         if not ref.add_inproceedings(users.user_id(), ref_key, author, title, booktitle, year):
             return render_template('error.html', message='Reference adding failed, try again')
 
         return redirect('/')
 
 
-
 @app.route('/view_references', methods=['get', 'post'])
 def view_references():
     if request.method == "GET":
         articles = ref.get_references(users.user_id())
-        
+
         return render_template('view_references.html', articles=articles)
 
 
