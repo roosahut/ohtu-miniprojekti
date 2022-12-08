@@ -23,7 +23,7 @@ Kohtuullinen testikattavuus
 - [Käyttöohje](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/instructions.md)<br>
 - [Retro1](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/retro1.md)<br>
 
-## Komentoritoiminnot
+## Komentorivitoiminnot
 <h2>Huom!</h2> 
 <h3><pre>Käyttäessä ohjelmaa paikallisesti omalla koneella, tulee tietokannan osoite määritellä .env-ympäristömuuttujaan, muuten
 ohjelma ei toimi.</pre></h3>
