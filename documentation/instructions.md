@@ -58,5 +58,5 @@ viitteet lukea painamalla etusivulla linkkiä click here, jonka jälkeen viittee
 ![view_references](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/pictures/view_references.png) <br>
 
 ## Uloskirjautuminen ja paluu edelliseen näkymään
-<pre>Käyttäjä voi paluta takaisin edelliseen näkymään painamalla return-nappia. Painamalla logout-nappia, 
+<pre>Käyttäjä voi palata takaisin edelliseen näkymään painamalla return-nappia. Painamalla logout-nappia, 
 käyttäjä kirjataan sovelluksesta ulos</pre>
