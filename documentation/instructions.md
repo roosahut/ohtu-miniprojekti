@@ -1,8 +1,8 @@
 # Käyttöohje
 
 ## Ohjelman käynnistäminen
-Ohjelma löytyy seuraavasta osoitteesta:
-[Viitesovellus](https://ohtu-references.fly.dev/)
+<pre>Ohjelma löytyy seuraavasta osoitteesta: </pre>
+https://ohtu-references.fly.dev/
 
 
 ## Aloitusnäkymä
@@ -15,7 +15,7 @@ ja uuden käyttäjän rekisteröinti</pre>
 
 
 ## Rekisteröinti
-<pre>Käyttäjän halutessa rekisteröidä uuden käyttäjätunnuksen, avautuu seurvaanlainen näkymä:</pre><br>
+<pre>Käyttäjän halutessa rekisteröidä uuden käyttäjätunnuksen, avautuu seuraavanlainen näkymä:</pre><br>
 
 ![register](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/pictures/register.png)<br>
 
@@ -38,7 +38,7 @@ jonka jälkeen avautuu seuraavanlainen näkymä: </pre>
 
 <pre>Käyttäjän syöttessä virheelliset tiedot, tulee tästä ilmoitus: </pre>
 
-<h4>placeholder</h4>
+![invalid_credentials](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/pictures/invalid_credentials.png) <br>
 
 <pre>Onnistuneen sisäänkirjautumisen jälkeen avautuu seuraava näkymä: </pre>
 
