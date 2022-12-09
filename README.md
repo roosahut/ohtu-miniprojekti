@@ -2,7 +2,7 @@
 
 [Product backlog](https://docs.google.com/spreadsheets/d/e/2PACX-1vTBRvMHFcpm47yrNZhur4q50_rPGXJ9hRW-U_Ia8FFg1hVNZNbn1Q6GyrQVcuvJ6rLPPdnbpsfF2DFl/pubhtml)
 
-[Linkki sovellukseen (ei vielä täysin toimiva)](https://ohtu-references.fly.dev/)
+[Linkki sovellukseen](https://ohtu-references.fly.dev/)
  
 ## Definition of Done
 
@@ -32,5 +32,3 @@ ohjelma ei toimi.</pre></h3>
 - Riippuvuudet asennetaan komennolla: <h3><pre>poetry install</pre></h3>
 
 - Ohjelma käynnistyy komennolla: <h3><pre>poetry run invoke start</pre></h3>
-- Testit voi jaa komennoilla: <h3><pre>poetry run invoke test</pre></h3> <h3><pre>poetry run invoke robot-test</pre></h3>
-- Testikattavuusraportin saa komennolla: <h3><pre>poetry run invoke coverage-report</pre></h3>
