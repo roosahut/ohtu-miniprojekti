@@ -44,11 +44,34 @@ def add_inproceedings(user, ref_key, author, title, booktitle, year):
     except:
         return False
     
-def get_references(user_id):
+def get_articles(user_id):
     try:
         sql = 'SELECT * FROM articles WHERE user_id=:user_id'
         articles = db.session.execute(sql, {'user_id': user_id}).fetchall()
         return articles       
     except:
         return False
-    
+
+def get_books(user_id):
+    try:
+        sql = 'SELECT * FROM books WHERE user_id=:user_id'
+        books = db.session.execute(sql, {'user_id': user_id}).fetchall()
+        return books    
+    except:
+        return False
+
+def get_inproceedings(user_id):
+    try:
+        sql = 'SELECT * FROM inproceedings WHERE user_id=:user_id'
+        inproceedings = db.session.execute(sql, {'user_id': user_id}).fetchall()
+        return inproceedings  
+    except:
+        return False
+
+def get_master_thesis(user_id):
+    try:
+        sql = 'SELECT * FROM masterthesis WHERE user_id=:user_id'
+        masterthesis = db.session.execute(sql, {'user_id': user_id}).fetchall()
+        return masterthesis       
+    except:
+        return False

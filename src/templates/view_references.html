@@ -7,13 +7,14 @@
 <div class="topnav">
     <a href="/logout">Logout</a>
     <a href="/">Return</a>
+    <a href="/view_bibtex">View BibTeX</a>
 </div>
 
 <h2> References </h2>
 
 {% if articles %}
-<h3> Articles </h3>
 <table style="width: 50%">
+    <caption> <b>Articles</b> </caption>
     <thead style="text-align:left">
         <tr>
             <th>Reference key</th>
@@ -38,23 +39,9 @@
     {% endfor %}
     {% endif %}
 
-
-
-    {% for article in articles %}
-    <code>
-    @article{ {{ article.ref_key }},
-    <p style="margin-left: 50px">author = { {{ article.author }} },</p>
-    <p style="margin-left: 50px">title = { {{ article.title }} },</p>
-    <p style="margin-left: 50px">journal = { {{ article.journal }} },</p>
-    <p style="margin-left: 50px">year = { {{ article.year }} },</p>
-    <p style="margin-left: 50px">volume = { {{ article.volume }} }</p>
-    }
-    </code>
-    {% endfor %}
-
 {% if books %}
-<h3> Books </h3>
 <table style="width: 50%">
+    <caption> <b> Books </b> </caption>
     <thead style="text-align:left">
         <tr>
             <th>Reference key</th>
@@ -78,8 +65,8 @@
     {% endif %}
 
 {% if inproceedings %}
-<h3> Inproceedings </h3>
 <table style="width: 50%">
+    <caption> <b>Inproceedings</b> </caption>
     <thead style="text-align:left">
         <tr>
             <th>Reference key</th>
@@ -89,22 +76,22 @@
             <th>Year</th>
         </tr>
     </thead>
-    {% for inproceedings in inproceedings %}
+    {% for inproceeding in inproceedings %}
     <tbody>
         <tr>
-            <td>{{inproceedings.ref_key}}</td>
-            <td>{{inproceedings.author}}</td>
-            <td>{{inproceedings.title}}</td>
-            <td>{{inproceedings.booktitle}}</td>
-            <td>{{inproceedings.year}}</td>
+            <td>{{inproceeding.ref_key}}</td>
+            <td>{{inproceeding.author}}</td>
+            <td>{{inproceeding.title}}</td>
+            <td>{{inproceeding.booktitle}}</td>
+            <td>{{inproceeding.year}}</td>
         </tr>
     </tbody>
     {% endfor %}
     {% endif %}
 
 {% if master_thesis %}
-<h3> Master Thesis </h3>
 <table style="width: 50%">
+    <caption> <b>Master Thesis</b> </caption>
     <thead style="text-align:left">
         <tr>
             <th>Reference key</th>
@@ -114,28 +101,28 @@
             <th>Year</th>
         </tr>
     </thead>
-    {% for master_thesis in master_thesis %}
+    {% for thesis in master_thesis %}
     <tbody>
         <tr>
-            <td>{{master_thesis.ref_key}}</td>
-            <td>{{master_thesis.author}}</td>
-            <td>{{master_thesis.title}}</td>
-            <td>{{master_thesis.school}}</td>
-            <td>{{master_thesis.year}}</td>
+            <td>{{thesis.ref_key}}</td>
+            <td>{{thesis.author}}</td>
+            <td>{{thesis.title}}</td>
+            <td>{{thesis.school}}</td>
+            <td>{{thesis.year}}</td>
         </tr>
     </tbody>
     {% endfor %}
-    {% endif %}   
+    {% endif %} 
 
-    {% else %}
+{% else %}
 
-    <div class="topnav">
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
-    </div>
+<div class="topnav">
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+</div>
 
-    {% endif %}
+{% endif %}
 
 
 
-    {% endblock %}
+{% endblock %}
