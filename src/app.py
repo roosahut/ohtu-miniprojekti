@@ -150,14 +150,15 @@ def logout():
 
     return redirect('/')
 
-@app.route('/view_bibtex')
+@app.route('/view_bibtex', methods=['get', 'post'])
 def view_bibtex():
-    articles = ref.get_articles(users.user_id())
-    books = ref.get_books(users.user_id())
-    inproceedings = ref.get_inproceedings(users.user_id())
-    master_thesis = ref.get_master_thesis(users.user_id())
+    if request.method == "GET":
+        articles = ref.get_articles(users.user_id())
+        books = ref.get_books(users.user_id())
+        inproceedings = ref.get_inproceedings(users.user_id())
+        master_thesis = ref.get_master_thesis(users.user_id())
 
-    return render_template('view_bibtex.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
+        return render_template('view_bibtex.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
 
 if __name__ == "__main__":
     app.run(debug=True)
