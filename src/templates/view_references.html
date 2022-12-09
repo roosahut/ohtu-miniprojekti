@@ -38,6 +38,8 @@
     {% endfor %}
     {% endif %}
 
+
+
     {% for article in articles %}
     <code>
     @article{ {{ article.ref_key }},
@@ -50,6 +52,80 @@
     </code>
     {% endfor %}
 
+{% if books %}
+<h3> Books </h3>
+<table style="width: 50%">
+    <thead style="text-align:left">
+        <tr>
+            <th>Reference key</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Publisher</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+    {% for book in books %}
+    <tbody>
+        <tr>
+            <td>{{book.ref_key}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.publisher}}</td>
+            <td>{{book.year}}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+    {% endif %}
+
+{% if inproceedings %}
+<h3> Inproceedings </h3>
+<table style="width: 50%">
+    <thead style="text-align:left">
+        <tr>
+            <th>Reference key</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Booktitle</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+    {% for inproceedings in inproceedings %}
+    <tbody>
+        <tr>
+            <td>{{inproceedings.ref_key}}</td>
+            <td>{{inproceedings.author}}</td>
+            <td>{{inproceedings.title}}</td>
+            <td>{{inproceedings.booktitle}}</td>
+            <td>{{inproceedings.year}}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+    {% endif %}
+
+{% if master_thesis %}
+<h3> Master Thesis </h3>
+<table style="width: 50%">
+    <thead style="text-align:left">
+        <tr>
+            <th>Reference key</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>School</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+    {% for master_thesis in master_thesis %}
+    <tbody>
+        <tr>
+            <td>{{master_thesis.ref_key}}</td>
+            <td>{{master_thesis.author}}</td>
+            <td>{{master_thesis.title}}</td>
+            <td>{{master_thesis.school}}</td>
+            <td>{{master_thesis.year}}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+    {% endif %}   
 
     {% else %}
 
