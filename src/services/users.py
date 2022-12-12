@@ -43,7 +43,14 @@ def check_csrf():
     if session['csrf_token'] != request.form['csrf_token']:
         abort(403)
 
+
 def delete_all():
-    sql = 'TRUNCATE TABLE users'
+    sql = 'TRUNCATE TABLE users CASCADE'
     db.session.execute(sql)
     db.session.commit()
+    
+
+def find_all():
+    sql = 'SELECT * FROM users'
+    users = db.session.execute(sql).fetchall()
+    return users

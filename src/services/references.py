@@ -1,17 +1,6 @@
 from app import db
 
 
-def add_book(user, ref_key, author, title, publisher, year):
-    try:
-        sql = 'INSERT INTO books (user_id, ref_key, author, title, publisher, year) VALUES (:user, :ref_key, :author, :title, :publisher, :year)'
-        db.session.execute(
-            sql, {'user': user, 'ref_key': ref_key, 'author': author, 'title': title, 'publisher': publisher, 'year': year})
-        db.session.commit()
-        return True
-    except:
-        return False
-    
-
 def add_article(user, ref_key, author, title, journal, year, volume):
     try:
         sql = 'INSERT INTO articles (user_id, ref_key, author, title, journal, year, volume) VALUES (:user, :ref_key, :author, :title, :journal, :year, :volume)'
@@ -23,6 +12,28 @@ def add_article(user, ref_key, author, title, journal, year, volume):
         return False
     
     
+def add_book(user, ref_key, author, title, publisher, year):
+    try:
+        sql = 'INSERT INTO books (user_id, ref_key, author, title, publisher, year) VALUES (:user, :ref_key, :author, :title, :publisher, :year)'
+        db.session.execute(
+            sql, {'user': user, 'ref_key': ref_key, 'author': author, 'title': title, 'publisher': publisher, 'year': year})
+        db.session.commit()
+        return True
+    except:
+        return False
+    
+
+def add_inproceedings(user, ref_key, author, title, booktitle, year):
+    try:
+        sql = 'INSERT INTO inproceedings (user_id, ref_key, author, title, booktitle, year) VALUES (:user, :ref_key, :author, :title, :booktitle, :year)'
+        db.session.execute(
+            sql, {'user': user, 'ref_key': ref_key, 'author': author, 'title': title, 'booktitle': booktitle, 'year': year})
+        db.session.commit()
+        return True
+    except:
+        return False
+    
+        
 def add_masterthesis(user, ref_key, author, title, school, year):
     try:
         sql = 'INSERT INTO masterthesis (user_id, ref_key, author, title, school, year) VALUES (:user, :ref_key, :author, :title, :school, :year)'
@@ -34,16 +45,6 @@ def add_masterthesis(user, ref_key, author, title, school, year):
         return False
     
     
-def add_inproceedings(user, ref_key, author, title, booktitle, year):
-    try:
-        sql = 'INSERT INTO inproceedings (user_id, ref_key, author, title, booktitle, year) VALUES (:user, :ref_key, :author, :title, :booktitle, :year)'
-        db.session.execute(
-            sql, {'user': user, 'ref_key': ref_key, 'author': author, 'title': title, 'booktitle': booktitle, 'year': year})
-        db.session.commit()
-        return True
-    except:
-        return False
-    
 def get_articles(user_id):
     try:
         sql = 'SELECT * FROM articles WHERE user_id=:user_id'
@@ -51,6 +52,7 @@ def get_articles(user_id):
         return articles       
     except:
         return False
+
 
 def get_books(user_id):
     try:
@@ -60,6 +62,7 @@ def get_books(user_id):
     except:
         return False
 
+
 def get_inproceedings(user_id):
     try:
         sql = 'SELECT * FROM inproceedings WHERE user_id=:user_id'
@@ -68,6 +71,7 @@ def get_inproceedings(user_id):
     except:
         return False
 
+
 def get_master_thesis(user_id):
     try:
         sql = 'SELECT * FROM masterthesis WHERE user_id=:user_id'
@@ -75,3 +79,15 @@ def get_master_thesis(user_id):
         return masterthesis       
     except:
         return False
+    
+    
+def delete_all():
+    sql = 'TRUNCATE TABLE articles CASCADE'
+    db.session.execute(sql)
+    sql = 'TRUNCATE TABLE books CASCADE'
+    db.session.execute(sql)
+    sql = 'TRUNCATE TABLE inproceedings CASCADE'
+    db.session.execute(sql)
+    sql = 'TRUNCATE TABLE masterthesis CASCADE'
+    db.session.execute(sql)
+    db.session.commit()
