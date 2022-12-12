@@ -34,8 +34,12 @@ jobs:
         run: poetry install
       - name: Run coverage tests
         run: poetry run invoke coverage
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
       - name: Coverage report
         run: poetry run coverage xml
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
       - name: Coverage report to Codecov
         run: bash <(curl -s https://codecov.io/bash)
       - name: Run tests
