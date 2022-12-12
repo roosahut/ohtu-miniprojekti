@@ -36,8 +36,9 @@
             <td>{{article.volume}}</td>
         </tr>
     </tbody>
-    {% endfor %}
-    {% endif %}
+</table>
+{% endfor %}
+{% endif %}
 
 {% if books %}
 <table style="width: 50%">
@@ -61,8 +62,9 @@
             <td>{{book.year}}</td>
         </tr>
     </tbody>
-    {% endfor %}
-    {% endif %}
+</table>
+{% endfor %}
+{% endif %}
 
 {% if inproceedings %}
 <table style="width: 50%">
@@ -86,8 +88,9 @@
             <td>{{inproceeding.year}}</td>
         </tr>
     </tbody>
-    {% endfor %}
-    {% endif %}
+</table>
+{% endfor %}
+{% endif %}
 
 {% if master_thesis %}
 <table style="width: 50%">
@@ -111,8 +114,13 @@
             <td>{{thesis.year}}</td>
         </tr>
     </tbody>
-    {% endfor %}
-    {% endif %} 
+</table>
+{% endfor %}
+{% endif %}
+
+
+<a class="bibtex" href="/create_bibtex">Download a bibtex file</a>
+
 
 {% else %}
 

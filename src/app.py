@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_file
 import string
 from config import SECRET_KEY, DATABASE_URL
 from db import db
@@ -150,6 +150,7 @@ def logout():
 
     return redirect('/')
 
+
 @app.route('/view_bibtex', methods=['get', 'post'])
 def view_bibtex():
     if request.method == "GET":
@@ -159,6 +160,16 @@ def view_bibtex():
         master_thesis = ref.get_master_thesis(users.user_id())
 
         return render_template('view_bibtex.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
+
+
+@app.route('/create_bibtex')
+def create_bibtex():
+    bibtex_form = ref.get_bibtex(users.user_id())
+    for i in bibtex_form:
+        file = open('src/bibtex.bib', 'a')
+        file.write(i)
+    return send_file('bibtex.bib', download_name='bibtex.bib', as_attachment=True)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
