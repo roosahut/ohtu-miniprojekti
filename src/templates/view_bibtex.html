@@ -17,10 +17,8 @@ You can download the BibTeX file in 'View references'
 
 {% if articles %}
 {% for article in articles %}
-<div class="language-plaintext highlighter-rouge">
-    <div class="highlight">
-        <pre class="highlight">
-            <code>
+<pre>
+    <code>
 @article&#123;{{article.ref_key}},
     author = &#123;{{article.author}}},
     title = &#123;{{article.title}}},
@@ -28,67 +26,53 @@ You can download the BibTeX file in 'View references'
     year = &#123;{{article.year}}},
     volume = &#123;{{article.volume}}},
 }
-            </code>
-        </pre>
-    </div>
-</div>
+    </code>
+</pre>
 {% endfor %}
 {% endif %}
 
 {% if books %}
 {% for book in books %}
-<div class="language-plaintext highlighter-rouge">
-    <div class="highlight">
-        <pre class="highlight">
-            <code>
+<pre>
+    <code>
 @book&#123;{{book.ref_key}},
     author = &#123;{{book.author}}},
     title = &#123;{{book.title}}},
     year = &#123;{{book.year}}},
     publisher = &#123;{{book.publisher}}},
 }
-            </code>
-        </pre>
-    </div>
-</div>
+    </code>
+</pre>
 {% endfor %}
 {% endif %}
 
 {% if inproceedings %}
 {% for inproceeding in inproceedings %}
-<div class="language-plaintext highlighter-rouge">
-    <div class="highlight">
-        <pre class="highlight">
-            <code>
+<pre>
+    <code>
 @inproceedings&#123;{{inproceeding.ref_key}},
     author = &#123;{{inproceeding.author}}},
     title = &#123;{{inproceeding.title}}},
     year = &#123;{{inproceeding.year}}},
     booktitle = &#123;{{inproceeding.booktitle}}},
 }
-            </code>
-        </pre>
-    </div>
-</div>
+    </code>
+</pre>
 {% endfor %}
 {% endif %}
 
 {% if master_thesis %}
 {% for thesis in master_thesis %}
-<div class="language-plaintext highlighter-rouge">
-    <div class="highlight">
-        <pre class="highlight">
-            <code>
+<pre>
+    <code>
 @masterthesis&#123;{{thesis.ref_key}},
     author = &#123;{{thesis.author}}},
     title = &#123;{{thesis.title}}},
     school = &#123;{{thesis.school}}},
     year = &#123;{{thesis.year}}},
 }
-            </code>
-        </pre>
-    </div>
-</div>
+    </code>
+</pre>
 {% endfor %}
 {% endif %}
 
