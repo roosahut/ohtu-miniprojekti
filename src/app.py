@@ -169,6 +169,11 @@ def view_bibtex():
 
         return render_template('view_bibtex.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
 
+@app.post('/tests/reset')
+def reset():
+    users.delete_all()
+    ref.delete_all()
+    return redirect('/')
 
 @app.post('/create_bibtex')
 def create_bibtex():
