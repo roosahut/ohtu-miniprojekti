@@ -109,7 +109,7 @@ def get_bibtex_forms(user_id):
 
     inproceedings = get_inproceedings(user_id)
     for inproceeding in inproceedings:
-        bibtex_list.append(bibtex_format.inproceeding_to_bibtex(inproceeding))
+        bibtex_list.append(bibtex_format.inproceedings_to_bibtex(inproceeding))
 
     masterthesis = get_master_thesis(user_id)
     for thesis in masterthesis:
