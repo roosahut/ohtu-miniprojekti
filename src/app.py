@@ -76,6 +76,8 @@ def add_refence():
 def add_book():
     if request.method == "POST":
         ref_key = request.form['ref_key']
+        if ref.find_refkey(users.user_id(), ref_key):
+            return render_template('error.html', message='You already have a reference with this key.')
         author = request.form['author']
         title = request.form['title']
         publisher = request.form['publisher']
@@ -91,6 +93,8 @@ def add_book():
 def add_article():
     if request.method == "POST":
         ref_key = request.form['ref_key']
+        if ref.find_refkey(users.user_id(), ref_key):
+            return render_template('error.html', message='You already have a reference with this key.')
         author = request.form['author']
         title = request.form['title']
         journal = request.form['journal']
@@ -107,6 +111,8 @@ def add_article():
 def add_masterthesis():
     if request.method == "POST":
         ref_key = request.form['ref_key']
+        if ref.find_refkey(users.user_id(), ref_key):
+            return render_template('error.html', message='You already have a reference with this key.')
         author = request.form['author']
         title = request.form['title']
         school = request.form['school']
@@ -122,6 +128,8 @@ def add_masterthesis():
 def add_inproceedings():
     if request.method == "POST":
         ref_key = request.form['ref_key']
+        if ref.find_refkey(users.user_id(), ref_key):
+            return render_template('error.html', message='You already have a reference with this key.')
         author = request.form['author']
         title = request.form['title']
         booktitle = request.form['booktitle']

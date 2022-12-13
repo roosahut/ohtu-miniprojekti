@@ -84,6 +84,29 @@ def get_master_thesis(user_id):
         return False
 
 
+def check_refkey(user_id, refkey, type):
+    try:
+        sql = f'SELECT * FROM {type} WHERE ref_key=:refkey AND user_id=:user_id'
+        reference = db.session.execute(
+            sql, {'refkey': refkey, 'user_id': user_id}).fetchall()
+        return reference
+    except:
+        return False
+
+
+def find_refkey(user_id, refkey):
+    if check_refkey(user_id, refkey, 'books'):
+        return True
+    elif check_refkey(user_id, refkey, 'articles'):
+        return True
+    elif check_refkey(user_id, refkey, 'masterthesis'):
+        return True
+    elif check_refkey(user_id, refkey, 'inproceedings'):
+        return True
+    else:
+        return False
+
+
 def delete_all():
     sql = 'TRUNCATE TABLE articles CASCADE'
     db.session.execute(sql)
@@ -114,6 +137,7 @@ def get_bibtex_forms(user_id):
     masterthesis = get_master_thesis(user_id)
     for thesis in masterthesis:
         bibtex_list.append(bibtex_format.masterthesis_to_bibtex(thesis))
+
     return bibtex_list
 
 
