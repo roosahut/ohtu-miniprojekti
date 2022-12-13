@@ -16,7 +16,7 @@ def create_tables():
         CREATE TABLE books (
             id SERIAL PRIMARY KEY,
             user_id INTEGER REFERENCES users,
-            ref_key TEXT UNIQUE,
+            ref_key TEXT,
             author TEXT,
             title TEXT,
             publisher TEXT,
@@ -26,7 +26,7 @@ def create_tables():
         CREATE TABLE articles (
             id SERIAL PRIMARY KEY,
             user_id INTEGER REFERENCES users,
-            ref_key TEXT UNIQUE,
+            ref_key TEXT,
             author TEXT,
             title TEXT,
             journal TEXT,
@@ -37,7 +37,7 @@ def create_tables():
         CREATE TABLE inproceedings (
             id SERIAL PRIMARY KEY,
             user_id INTEGER REFERENCES users,
-            ref_key TEXT UNIQUE,
+            ref_key TEXT,
             author TEXT,
             title TEXT,
             booktitle TEXT,
@@ -47,7 +47,7 @@ def create_tables():
         CREATE TABLE masterthesis (
             id SERIAL PRIMARY KEY,
             user_id INTEGER REFERENCES users,
-            ref_key TEXT UNIQUE,
+            ref_key TEXT,
             author TEXT,
             title TEXT,
             school TEXT,
