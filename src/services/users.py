@@ -48,7 +48,7 @@ def delete_all():
     sql = 'TRUNCATE TABLE users CASCADE'
     db.session.execute(sql)
     db.session.commit()
-    
+
 
 def find_all():
     sql = 'SELECT * FROM users'

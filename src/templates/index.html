@@ -9,6 +9,8 @@
 {% if session.user_id %}
 
 <div class="topnav">
+  <a href="/view_references">View references</a>
+  <a href="/view_bibtex">View references in BibTeX format</a>
   <a href="/logout">Logout</a>
 </div>
 
@@ -23,8 +25,6 @@ Select type:
   </select>
   <input type="submit" value="Continue">
 </form>
-<h2>View references</h2>
-<a href="/view_references">Click here</a>
 
 {% else %}
 

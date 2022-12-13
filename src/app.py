@@ -4,7 +4,6 @@ from config import SECRET_KEY, DATABASE_URL
 from db import db
 import services.users as users
 import services.references as ref
-import services.bibtex as bib
 
 
 app = Flask(__name__)
@@ -163,15 +162,15 @@ def view_bibtex():
         return render_template('view_bibtex.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
 
 
-@app.route('/create_bibtex')
+@app.post('/create_bibtex')
 def create_bibtex():
-    bibtex_form = ref.get_bibtex(users.user_id())
-    file = open('src/bibtex.bib', 'a')
-    for i in bibtex_form:
-        for row in i:
-            file.write(row)
-            file.write("\n")
-    return send_file('bibtex.bib', download_name='bibtex.bib', as_attachment=True)
+    file_name = request.form['file_name']
+    if not file_name:
+        return render_template('error.html', message='You have to write the filename.')
+    if not ref.add_references_to_file(users.user_id()):
+        return render_template('error.html', message='Error creating the file.')
+    download_name = f'{file_name}.bib'
+    return send_file('bibtex.bib', download_name=download_name, as_attachment=True)
 
 
 if __name__ == "__main__":

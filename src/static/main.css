@@ -24,3 +24,8 @@ body {
   text-decoration: none;
   font-size: 17px;
 }
+
+.topnav a:hover {
+  background-color: rgb(168, 168, 168);
+  color: black;
+}

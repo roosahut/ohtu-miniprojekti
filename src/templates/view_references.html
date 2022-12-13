@@ -5,9 +5,9 @@
 {% if session.user_id %}
 
 <div class="topnav">
-    <a href="/logout">Logout</a>
-    <a href="/">Return</a>
+    <a href="/">Add new reference</a>
     <a href="/view_bibtex">View BibTeX</a>
+    <a href="/logout">Logout</a>
 </div>
 
 <h2> References </h2>
@@ -118,9 +118,11 @@
 {% endfor %}
 {% endif %}
 
-
-<a class="bibtex" href="/create_bibtex">Download a bibtex file</a>
-
+<p>Decide a name for your BibTeX file and download it!</p>
+<form action="/create_bibtex" method="post">
+    <textarea name="file_name" rows="1" value="file_name"></textarea>.bib
+    <input type="submit" value="Download">
+</form>
 
 {% else %}
 

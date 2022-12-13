@@ -1,5 +1,6 @@
+import os
 from app import db
-import services.bibtex as bibtex
+import services.bibtex_format as bibtex_format
 
 
 def add_article(user, ref_key, author, title, journal, year, volume):
@@ -95,9 +96,37 @@ def delete_all():
     db.session.commit()
 
 
-def get_bibtex(user_id):
-    books = get_books(user_id)
+def get_bibtex_forms(user_id):
     bibtex_list = []
+
+    books = get_books(user_id)
     for book in books:
-        bibtex_list.append(bibtex.book_to_bibtex(book))
+        bibtex_list.append(bibtex_format.book_to_bibtex(book))
+
+    articles = get_articles(user_id)
+    for article in articles:
+        bibtex_list.append(bibtex_format.article_to_bibtex(article))
+
+    inproceedings = get_inproceedings(user_id)
+    for inproceeding in inproceedings:
+        bibtex_list.append(bibtex_format.inproceeding_to_bibtex(inproceeding))
+
+    masterthesis = get_master_thesis(user_id)
+    for thesis in masterthesis:
+        bibtex_list.append(bibtex_format.masterthesis_to_bibtex(thesis))
     return bibtex_list
+
+
+def add_references_to_file(user_id):
+    try:
+        if os.path.exists('src/bibtex.bib'):
+            os.remove('src/bibtex.bib')
+        file = open('src/bibtex.bib', 'a')
+        bibtex_form = get_bibtex_forms(user_id)
+        for i in bibtex_form:
+            for row in i:
+                file.write(row)
+                file.write("\n")
+        return True
+    except:
+        return False

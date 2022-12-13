@@ -5,11 +5,15 @@
 {% if session.user_id %}
 
 <div class="topnav">
+    <a href="/">Add new reference</a>
+    <a href="/view_references">View references</a>
     <a href="/logout">Logout</a>
-    <a href="/view_references">Return</a>
 </div>
 
+You can download the BibTeX file in 'View references'
+
 <h2> BibTeX</h2>
+
 
 {% if articles %}
 {% for article in articles %}
