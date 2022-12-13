@@ -27,7 +27,7 @@ def article_to_bibtex(article):
 
 def inproceedings_to_bibtex(inproceeding):
     bibtex = [
-        "@inproceeding{" + inproceeding[2] + ",",
+        "@inproceedings{" + inproceeding[2] + ",",
         "    author = {" + inproceeding[3] + "},",
         "    title = {" + inproceeding[4] + "},",
         "    booktitle = {" + inproceeding[5] + "},",
@@ -40,7 +40,7 @@ def inproceedings_to_bibtex(inproceeding):
 
 def masterthesis_to_bibtex(masterthesis):
     bibtex = [
-        "@masterthesis{" + masterthesis[2] + ",",
+        "@mastersthesis{" + masterthesis[2] + ",",
         "    author = {" + masterthesis[3] + "},",
         "    title = {" + masterthesis[4] + "},",
         "    school = {" + masterthesis[5] + "},",
