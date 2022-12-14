@@ -36,6 +36,7 @@
     <caption> <b>Articles</b> </caption>
     <thead style="text-align:left">
         <tr>
+            <th></th>
             <th>Reference key</th>
             <th>Author</th>
             <th>Title</th>
@@ -47,13 +48,13 @@
     <tbody>
         {% for article in articles %}
         <tr>
+            <td><input type="checkbox" name="check" value={{ article.ref_key }} </td>
             <td>{{article.ref_key}}</td>
             <td>{{article.author}}</td>
             <td>{{article.title}}</td>
             <td>{{article.journal}}</td>
             <td>{{article.year}}</td>
             <td>{{article.volume}}</td>
-            <td><input type="checkbox" name="check" value={{ article.ref_key }} </td>
         </tr>
         {% endfor %}
     </tbody>
@@ -67,6 +68,7 @@
     <caption> <b> Books </b> </caption>
     <thead style="text-align:left">
         <tr>
+            <th></th>
             <th>Reference key</th>
             <th>Author</th>
             <th>Title</th>
@@ -77,12 +79,12 @@
     <tbody>
         {% for book in books %}
         <tr>
+            <td><input type="checkbox" name="check" value={{ book.ref_key }} </td>
             <td>{{book.ref_key}}</td>
             <td>{{book.author}}</td>
             <td>{{book.title}}</td>
             <td>{{book.publisher}}</td>
             <td>{{book.year}}</td>
-            <td><input type="checkbox" name="check" value={{ book.ref_key }} </td>
         </tr>
         {% endfor %}
     </tbody>
@@ -96,6 +98,7 @@
     <caption> <b>Inproceedings</b> </caption>
     <thead style="text-align:left">
         <tr>
+            <th></th>
             <th>Reference key</th>
             <th>Author</th>
             <th>Title</th>
@@ -106,12 +109,12 @@
     <tbody>
         {% for inproceeding in inproceedings %}
         <tr>
+            <td><input type="checkbox" name="check" value={{ inproceeding.ref_key }} </td>
             <td>{{inproceeding.ref_key}}</td>
             <td>{{inproceeding.author}}</td>
             <td>{{inproceeding.title}}</td>
             <td>{{inproceeding.booktitle}}</td>
             <td>{{inproceeding.year}}</td>
-            <td><input type="checkbox" name="check" value={{ inproceeding.ref_key }} </td>
         </tr>
         {% endfor %}
     </tbody>
@@ -125,6 +128,7 @@
     <caption> <b>Master Thesis</b> </caption>
     <thead style="text-align:left">
         <tr>
+            <th></th>
             <th>Reference key</th>
             <th>Author</th>
             <th>Title</th>
@@ -135,12 +139,13 @@
     <tbody>
         {% for thesis in master_thesis %}
         <tr>
+            <td><input type="checkbox" name="check" value={{ thesis.ref_key }} </td>
             <td>{{thesis.ref_key}}</td>
             <td>{{thesis.author}}</td>
             <td>{{thesis.title}}</td>
             <td>{{thesis.school}}</td>
             <td>{{thesis.year}}</td>
-            <td><input type="checkbox" name="check" value={{ thesis.ref_key }} </td>
+            
         </tr>
         {% endfor %}
     </tbody>
