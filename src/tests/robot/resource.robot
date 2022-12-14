@@ -19,11 +19,14 @@ ${REFERENCES URL}  http://${SERVER}/view_references
 *** Keywords ***
 Open And Configure Browser
     Open Browser  browser=${BROWSER}
-    Maximize Browser Window
+    #Maximize Browser Window
     Set Selenium Speed  ${DELAY}
 
 Login Page Should Be Open
     Title Should Be  Login
+
+Register Page Should Be Open
+    Title Should Be  Register
 
 Error Page Should Be Open
     Title Should Be  Error
@@ -31,8 +34,14 @@ Error Page Should Be Open
 Main Page Should Be Open
     Title Should Be  Reference library
 
+Go To Home Page
+    Go To  ${HOME URL}
+
 Go To Login Page
     Go To  ${LOGIN URL}
+
+Go To Register Page
+    Go To  ${REGISTER URL}
 
 Go To Article Page
     Go To  ${ARTICLE URL}

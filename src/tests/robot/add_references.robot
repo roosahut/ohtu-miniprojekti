@@ -5,7 +5,6 @@ Suite Teardown  Close Browser
 Test Setup  Create User And Login
 
 *** Test Cases ***
-
 Add Adds One Book Reference To References
     Go To Book Page
     Set Refkey  cats1  
@@ -24,7 +23,6 @@ Create User And Login
     Set Username  mikko
     Set Password  mikko6969
     Submit Login Credentials
-
 
 Set Refkey
     [Arguments]  ${ref_key}
