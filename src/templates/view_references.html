@@ -1,6 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<script type="text/javascript">
+    function selectAll(){
+        var select = document.getElementsByName("check")
+        for (var i=0; i<select.length;i++){
+            if(select[i].type=="checkbox") {
+                select[i].checked=true;
+            }
+        }
+    }
+    function deselectAll(){
+        var select = document.getElementsByName("check")
+        for (var i=0; i<select.length;i++){
+            if(select[i].type=="checkbox") {
+                select[i].checked=false;
+            }
+        }
+    }
+</script>
 
 {% if session.user_id %}
 
@@ -12,6 +30,7 @@
 
 <h2> References </h2>
 
+<form action="/create_bibtex" method="post">
 {% if articles %}
 <table>
     <caption> <b>Articles</b> </caption>
@@ -34,6 +53,7 @@
             <td>{{article.journal}}</td>
             <td>{{article.year}}</td>
             <td>{{article.volume}}</td>
+            <td><input type="checkbox" name="check" value={{ article.ref_key }} </td>
         </tr>
         {% endfor %}
     </tbody>
@@ -62,6 +82,7 @@
             <td>{{book.title}}</td>
             <td>{{book.publisher}}</td>
             <td>{{book.year}}</td>
+            <td><input type="checkbox" name="check" value={{ book.ref_key }} </td>
         </tr>
         {% endfor %}
     </tbody>
@@ -90,6 +111,7 @@
             <td>{{inproceeding.title}}</td>
             <td>{{inproceeding.booktitle}}</td>
             <td>{{inproceeding.year}}</td>
+            <td><input type="checkbox" name="check" value={{ inproceeding.ref_key }} </td>
         </tr>
         {% endfor %}
     </tbody>
@@ -118,16 +140,18 @@
             <td>{{thesis.title}}</td>
             <td>{{thesis.school}}</td>
             <td>{{thesis.year}}</td>
+            <td><input type="checkbox" name="check" value={{ thesis.ref_key }} </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 {% endif %}
-
+<br>
+<input type="button" onclick="selectAll()" value="Select all">
+<input type="button" onclick="deselectAll()" value="Deselect all">
 <p>Decide a name for your BibTeX file and download it!</p>
-<form action="/create_bibtex" method="post">
-    <textarea name="file_name" rows="1" value="file_name"></textarea>.bib
-    <input type="submit" value="Download">
+<textarea name="file_name" rows="1" value="file_name"></textarea>.bib
+<input type="submit" value="Download">
 </form>
 
 {% else %}
@@ -138,7 +162,5 @@
 </div>
 
 {% endif %}
-
-
 
 {% endblock %}

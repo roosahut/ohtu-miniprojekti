@@ -68,8 +68,6 @@ def add_refence():
     if request.method == 'GET':
         ref_type = request.args['add_reference']
         return render_template(reference_type[ref_type])
-    # if request.method == 'POST':
-    #     'tänne ehkä lomakkeiden tietoja'
 
 
 @app.route('/add_book', methods=['get', 'post'])
@@ -144,10 +142,10 @@ def add_inproceedings():
 @app.route('/view_references', methods=['get', 'post'])
 def view_references():
     if request.method == "GET":
-        articles = ref.get_articles(users.user_id())
-        books = ref.get_books(users.user_id())
-        inproceedings = ref.get_inproceedings(users.user_id())
-        master_thesis = ref.get_master_thesis(users.user_id())
+        articles = ref.get_articles(users.user_id(),"")
+        books = ref.get_books(users.user_id(), "")
+        inproceedings = ref.get_inproceedings(users.user_id(), "")
+        master_thesis = ref.get_master_thesis(users.user_id(), "")
 
         return render_template('view_references.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
 
@@ -162,10 +160,10 @@ def logout():
 @app.route('/view_bibtex', methods=['get', 'post'])
 def view_bibtex():
     if request.method == "GET":
-        articles = ref.get_articles(users.user_id())
-        books = ref.get_books(users.user_id())
-        inproceedings = ref.get_inproceedings(users.user_id())
-        master_thesis = ref.get_master_thesis(users.user_id())
+        articles = ref.get_articles(users.user_id(), "")
+        books = ref.get_books(users.user_id(), "")
+        inproceedings = ref.get_inproceedings(users.user_id(), "")
+        master_thesis = ref.get_master_thesis(users.user_id(), "")
 
         return render_template('view_bibtex.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
 
@@ -178,9 +176,12 @@ def reset():
 @app.post('/create_bibtex')
 def create_bibtex():
     file_name = request.form['file_name']
+    ref_keys = request.form.getlist("check")
+    if len(ref_keys) == 0:
+        return render_template('error.html', message='You have to choose at least one reference.')
     if not file_name:
         return render_template('error.html', message='You have to write the filename.')
-    if not ref.add_references_to_file(users.user_id()):
+    if not ref.add_references_to_file(users.user_id(), ref_keys):
         return render_template('error.html', message='Error creating the file.')
     download_name = f'{file_name}.bib'
     return send_file('bibtex.bib', download_name=download_name, as_attachment=True)

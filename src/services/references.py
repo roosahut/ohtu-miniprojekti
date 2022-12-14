@@ -47,42 +47,41 @@ def add_masterthesis(user, ref_key, author, title, school, year):
         return False
 
 
-def get_articles(user_id):
+def get_articles(user_id, ref_key):
     try:
-        sql = 'SELECT * FROM articles WHERE user_id=:user_id'
-        articles = db.session.execute(sql, {'user_id': user_id}).fetchall()
+        sql = 'SELECT * FROM articles WHERE user_id=:user_id AND ref_key LIKE :ref_key'
+        articles = db.session.execute(sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%'}).fetchall()
         return articles
     except:
         return False
 
 
-def get_books(user_id):
+def get_books(user_id, ref_key):
     try:
-        sql = 'SELECT * FROM books WHERE user_id=:user_id'
-        books = db.session.execute(sql, {'user_id': user_id}).fetchall()
+        sql = 'SELECT * FROM books WHERE user_id=:user_id AND ref_key LIKE :ref_key'
+        books = db.session.execute(sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%'}).fetchall()
         return books
     except:
         return False
 
 
-def get_inproceedings(user_id):
+def get_inproceedings(user_id, ref_key):
     try:
-        sql = 'SELECT * FROM inproceedings WHERE user_id=:user_id'
+        sql = 'SELECT * FROM inproceedings WHERE user_id=:user_id AND ref_key LIKE :ref_key'
         inproceedings = db.session.execute(
-            sql, {'user_id': user_id}).fetchall()
+            sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%'}).fetchall()
         return inproceedings
     except:
         return False
 
 
-def get_master_thesis(user_id):
+def get_master_thesis(user_id, ref_key):
     try:
-        sql = 'SELECT * FROM masterthesis WHERE user_id=:user_id'
-        masterthesis = db.session.execute(sql, {'user_id': user_id}).fetchall()
+        sql = 'SELECT * FROM masterthesis WHERE user_id=:user_id AND ref_key LIKE :ref_key'
+        masterthesis = db.session.execute(sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%'}).fetchall()
         return masterthesis
     except:
         return False
-
 
 def check_refkey(user_id, refkey, type):
     try:
@@ -119,34 +118,35 @@ def delete_all():
     db.session.commit()
 
 
-def get_bibtex_forms(user_id):
+def get_bibtex_forms(user_id, ref_keys):
     bibtex_list = []
 
-    books = get_books(user_id)
-    for book in books:
-        bibtex_list.append(bibtex_format.book_to_bibtex(book))
+    for reference in ref_keys:
+        books = get_books(user_id, reference)
+        for book in books:
+            bibtex_list.append(bibtex_format.book_to_bibtex(book))
 
-    articles = get_articles(user_id)
-    for article in articles:
-        bibtex_list.append(bibtex_format.article_to_bibtex(article))
+        articles = get_articles(user_id, reference)
+        for article in articles:
+            bibtex_list.append(bibtex_format.article_to_bibtex(article))
 
-    inproceedings = get_inproceedings(user_id)
-    for inproceeding in inproceedings:
-        bibtex_list.append(bibtex_format.inproceedings_to_bibtex(inproceeding))
+        inproceedings = get_inproceedings(user_id, reference)
+        for inproceeding in inproceedings:
+            bibtex_list.append(bibtex_format.inproceedings_to_bibtex(inproceeding))
 
-    masterthesis = get_master_thesis(user_id)
-    for thesis in masterthesis:
-        bibtex_list.append(bibtex_format.masterthesis_to_bibtex(thesis))
+        masterthesis = get_master_thesis(user_id, reference)
+        for thesis in masterthesis:
+            bibtex_list.append(bibtex_format.masterthesis_to_bibtex(thesis))
 
     return bibtex_list
 
 
-def add_references_to_file(user_id):
+def add_references_to_file(user_id, ref_keys):
     try:
         if os.path.exists('src/bibtex.bib'):
             os.remove('src/bibtex.bib')
         file = open('src/bibtex.bib', 'a')
-        bibtex_form = get_bibtex_forms(user_id)
+        bibtex_form = get_bibtex_forms(user_id, ref_keys)
         for i in bibtex_form:
             for row in i:
                 file.write(row)
@@ -154,3 +154,4 @@ def add_references_to_file(user_id):
         return True
     except:
         return False
+
