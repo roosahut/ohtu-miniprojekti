@@ -47,38 +47,38 @@ def add_masterthesis(user, ref_key, author, title, school, year):
         return False
 
 
-def get_articles(user_id, ref_key):
+def get_articles(user_id, ref_key, search):
     try:
-        sql = 'SELECT * FROM articles WHERE user_id=:user_id AND ref_key LIKE :ref_key'
-        articles = db.session.execute(sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%'}).fetchall()
+        sql = 'SELECT * FROM articles WHERE user_id=:user_id AND ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR journal LIKE :search'
+        articles = db.session.execute(sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
         return articles
     except:
         return False
 
 
-def get_books(user_id, ref_key):
+def get_books(user_id, ref_key, search):
     try:
-        sql = 'SELECT * FROM books WHERE user_id=:user_id AND ref_key LIKE :ref_key'
-        books = db.session.execute(sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%'}).fetchall()
+        sql = 'SELECT * FROM books WHERE user_id=:user_id AND ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR publisher LIKE :search'
+        books = db.session.execute(sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
         return books
     except:
         return False
 
 
-def get_inproceedings(user_id, ref_key):
+def get_inproceedings(user_id, ref_key, search):
     try:
-        sql = 'SELECT * FROM inproceedings WHERE user_id=:user_id AND ref_key LIKE :ref_key'
+        sql = 'SELECT * FROM inproceedings WHERE user_id=:user_id AND ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR booktitle LIKE :search'
         inproceedings = db.session.execute(
-            sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%'}).fetchall()
+            sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
         return inproceedings
     except:
         return False
 
 
-def get_master_thesis(user_id, ref_key):
+def get_master_thesis(user_id, ref_key, search):
     try:
-        sql = 'SELECT * FROM masterthesis WHERE user_id=:user_id AND ref_key LIKE :ref_key'
-        masterthesis = db.session.execute(sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%'}).fetchall()
+        sql = 'SELECT * FROM masterthesis WHERE user_id=:user_id AND ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR school LIKE :search'
+        masterthesis = db.session.execute(sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
         return masterthesis
     except:
         return False

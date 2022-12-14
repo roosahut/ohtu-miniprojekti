@@ -142,10 +142,19 @@ def add_inproceedings():
 @app.route('/view_references', methods=['get', 'post'])
 def view_references():
     if request.method == "GET":
-        articles = ref.get_articles(users.user_id(),"")
-        books = ref.get_books(users.user_id(), "")
-        inproceedings = ref.get_inproceedings(users.user_id(), "")
-        master_thesis = ref.get_master_thesis(users.user_id(), "")
+        articles = ref.get_articles(users.user_id(),"", "")
+        books = ref.get_books(users.user_id(), "", "")
+        inproceedings = ref.get_inproceedings(users.user_id(), "", "")
+        master_thesis = ref.get_master_thesis(users.user_id(), "", "")
+
+        return render_template('view_references.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
+    
+    if request.method == "POST":
+        search = request.form['search']
+        articles = ref.get_articles(users.user_id(),"", search)
+        books = ref.get_books(users.user_id(), "", search)
+        inproceedings = ref.get_inproceedings(users.user_id(), "", search)
+        master_thesis = ref.get_master_thesis(users.user_id(), "", search)
 
         return render_template('view_references.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
 

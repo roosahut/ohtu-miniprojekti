@@ -24,8 +24,12 @@
 
 <div class="topnav">
     <a href="/">Add new reference</a>
-    <a href="/view_bibtex">View BibTeX</a>
+    <a href="/view_bibtex">View references in BibTeX format</a>
     <a href="/logout">Logout</a>
+    <form action="/view_references" method="post">
+        <input type="text" name="search">
+        <input type="submit" value="Search">
+    </form>
 </div>
 
 <h2> References </h2>
