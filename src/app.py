@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, redirect, send_file
 import string
+from flask import Flask, render_template, request, redirect, send_file
 from config import SECRET_KEY, DATABASE_URL
 from db import db
 import services.users as users
@@ -142,16 +142,16 @@ def add_inproceedings():
 @app.route('/view_references', methods=['get', 'post'])
 def view_references():
     if request.method == "GET":
-        articles = ref.get_articles(users.user_id(),"", "")
+        articles = ref.get_articles(users.user_id(), "", "")
         books = ref.get_books(users.user_id(), "", "")
         inproceedings = ref.get_inproceedings(users.user_id(), "", "")
         master_thesis = ref.get_master_thesis(users.user_id(), "", "")
 
         return render_template('view_references.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
-    
+
     if request.method == "POST":
         search = request.form['search']
-        articles = ref.get_articles(users.user_id(),"", search)
+        articles = ref.get_articles(users.user_id(), "", search)
         books = ref.get_books(users.user_id(), "", search)
         inproceedings = ref.get_inproceedings(users.user_id(), "", search)
         master_thesis = ref.get_master_thesis(users.user_id(), "", search)
@@ -190,15 +190,18 @@ def create_bibtex():
     download_name = f'{file_name}.bib'
     return send_file('bibtex.bib', download_name=download_name, as_attachment=True)
 
+
 @app.route("/ping")
 def ping():
     return "Pong"
+
 
 @app.post('/tests/reset')
 def reset():
     users.delete_all()
     ref.delete_all()
     return redirect('/')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
