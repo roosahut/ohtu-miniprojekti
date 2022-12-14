@@ -57,4 +57,5 @@ jobs:
         run: bash run_robot_tests.sh
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
+          SECRET_KEY: 95d3763bb55e744e77dd181a47b4e1c9
           FLASK_DEBUG: development
