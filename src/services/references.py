@@ -126,13 +126,13 @@ def get_bibtex_forms(user_id, ref_keys):
     bibtex_list = []
 
     for reference in ref_keys:
-        books = get_books(user_id, reference, '')
-        for book in books:
-            bibtex_list.append(bibtex_format.book_to_bibtex(book))
-
         articles = get_articles(user_id, reference, '')
         for article in articles:
             bibtex_list.append(bibtex_format.article_to_bibtex(article))
+            
+        books = get_books(user_id, reference, '')
+        for book in books:
+            bibtex_list.append(bibtex_format.book_to_bibtex(book))
 
         inproceedings = get_inproceedings(user_id, reference, '')
         for inproceeding in inproceedings:
