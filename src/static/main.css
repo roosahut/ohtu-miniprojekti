@@ -32,11 +32,12 @@ body {
 
 table {
   border-collapse: collapse;
+  font-size: 0.8em;
 }
 
 caption {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
   text-align: left;
   color: rgb(0, 0, 0);
   margin-bottom: 10px;
