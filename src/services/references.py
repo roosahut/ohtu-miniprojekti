@@ -126,20 +126,20 @@ def get_bibtex_forms(user_id, ref_keys):
     bibtex_list = []
 
     for reference in ref_keys:
-        books = get_books(user_id, reference)
+        books = get_books(user_id, reference, '')
         for book in books:
             bibtex_list.append(bibtex_format.book_to_bibtex(book))
 
-        articles = get_articles(user_id, reference)
+        articles = get_articles(user_id, reference, '')
         for article in articles:
             bibtex_list.append(bibtex_format.article_to_bibtex(article))
 
-        inproceedings = get_inproceedings(user_id, reference)
+        inproceedings = get_inproceedings(user_id, reference, '')
         for inproceeding in inproceedings:
             bibtex_list.append(
                 bibtex_format.inproceedings_to_bibtex(inproceeding))
 
-        masterthesis = get_master_thesis(user_id, reference)
+        masterthesis = get_master_thesis(user_id, reference, '')
         for thesis in masterthesis:
             bibtex_list.append(bibtex_format.masterthesis_to_bibtex(thesis))
 
