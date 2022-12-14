@@ -50,7 +50,8 @@ def add_masterthesis(user, ref_key, author, title, school, year):
 def get_articles(user_id, ref_key, search):
     try:
         sql = 'SELECT * FROM articles WHERE user_id=:user_id AND ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR journal LIKE :search'
-        articles = db.session.execute(sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
+        articles = db.session.execute(
+            sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
         return articles
     except:
         return False
@@ -59,7 +60,8 @@ def get_articles(user_id, ref_key, search):
 def get_books(user_id, ref_key, search):
     try:
         sql = 'SELECT * FROM books WHERE user_id=:user_id AND ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR publisher LIKE :search'
-        books = db.session.execute(sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
+        books = db.session.execute(
+            sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
         return books
     except:
         return False
@@ -78,10 +80,12 @@ def get_inproceedings(user_id, ref_key, search):
 def get_master_thesis(user_id, ref_key, search):
     try:
         sql = 'SELECT * FROM masterthesis WHERE user_id=:user_id AND ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR school LIKE :search'
-        masterthesis = db.session.execute(sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
+        masterthesis = db.session.execute(
+            sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
         return masterthesis
     except:
         return False
+
 
 def check_refkey(user_id, refkey, type):
     try:
@@ -132,7 +136,8 @@ def get_bibtex_forms(user_id, ref_keys):
 
         inproceedings = get_inproceedings(user_id, reference)
         for inproceeding in inproceedings:
-            bibtex_list.append(bibtex_format.inproceedings_to_bibtex(inproceeding))
+            bibtex_list.append(
+                bibtex_format.inproceedings_to_bibtex(inproceeding))
 
         masterthesis = get_master_thesis(user_id, reference)
         for thesis in masterthesis:
@@ -154,4 +159,3 @@ def add_references_to_file(user_id, ref_keys):
         return True
     except:
         return False
-

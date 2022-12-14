@@ -8,7 +8,7 @@ body {
 .header {
   background: rgb(112, 112, 112);
   padding: 1em;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 .topnav {
@@ -42,7 +42,8 @@ caption {
   margin-bottom: 10px;
 }
 
-th, td {
-	border: 1px solid black;
-	padding: 8px;
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
 }
