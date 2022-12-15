@@ -51,7 +51,7 @@ def get_articles(user_id, ref_key, search):
     try:
         sql = 'SELECT * FROM articles WHERE user_id=:user_id AND ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR journal LIKE :search'
         articles = db.session.execute(
-            sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
+            sql, {'user_id': user_id, 'ref_key': '%' + ref_key + '%', 'search': '%' + search + '%'}).fetchall()
         return articles
     except:
         return False
@@ -61,7 +61,7 @@ def get_books(user_id, ref_key, search):
     try:
         sql = 'SELECT * FROM books WHERE user_id=:user_id AND ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR publisher LIKE :search'
         books = db.session.execute(
-            sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
+            sql, {'user_id': user_id, 'ref_key': '%' + ref_key + '%', 'search': '%' + search + '%'}).fetchall()
         return books
     except:
         return False
@@ -71,7 +71,7 @@ def get_inproceedings(user_id, ref_key, search):
     try:
         sql = 'SELECT * FROM inproceedings WHERE user_id=:user_id AND ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR booktitle LIKE :search'
         inproceedings = db.session.execute(
-            sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
+            sql, {'user_id': user_id, 'ref_key': '%' + ref_key + '%', 'search': '%' + search + '%'}).fetchall()
         return inproceedings
     except:
         return False
@@ -81,7 +81,7 @@ def get_master_thesis(user_id, ref_key, search):
     try:
         sql = 'SELECT * FROM masterthesis WHERE user_id=:user_id AND ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR school LIKE :search'
         masterthesis = db.session.execute(
-            sql, {'user_id': user_id, 'ref_key':'%' + ref_key + '%', 'search':'%' + search + '%'}).fetchall()
+            sql, {'user_id': user_id, 'ref_key': '%' + ref_key + '%', 'search': '%' + search + '%'}).fetchall()
         return masterthesis
     except:
         return False
@@ -106,8 +106,7 @@ def find_refkey(user_id, refkey):
         return True
     elif check_refkey(user_id, refkey, 'inproceedings'):
         return True
-    else:
-        return False
+    return False
 
 
 def delete_all():
@@ -126,13 +125,13 @@ def get_bibtex_forms(user_id, ref_keys):
     bibtex_list = []
 
     for reference in ref_keys:
-        books = get_books(user_id, reference, '')
-        for book in books:
-            bibtex_list.append(bibtex_format.book_to_bibtex(book))
-
         articles = get_articles(user_id, reference, '')
         for article in articles:
             bibtex_list.append(bibtex_format.article_to_bibtex(article))
+
+        books = get_books(user_id, reference, '')
+        for book in books:
+            bibtex_list.append(bibtex_format.book_to_bibtex(book))
 
         inproceedings = get_inproceedings(user_id, reference, '')
         for inproceeding in inproceedings:

@@ -1,5 +1,6 @@
 import requests
 
+
 class AppLibrary:
     def __init__(self):
         self._base_url = "http://localhost:5000"
@@ -15,7 +16,7 @@ class AppLibrary:
             "password2": password
         }
 
-        requests.post(f"{self._base_url}/register", data = data)
+        requests.post(f"{self._base_url}/register", data=data)
 
     def login(self, username, password):
         data = {
@@ -23,7 +24,7 @@ class AppLibrary:
             "password": password
         }
 
-        requests.post(f"{self._base_url}/login", data = data)
+        requests.post(f"{self._base_url}/login", data=data)
 
     def add_book_reference(self, ref_key, author, title, publisher, year):
         data = {
@@ -34,5 +35,4 @@ class AppLibrary:
             "year": year
         }
 
-        requests.post(f"{self._base_url}/add_book", data = data)
-
+        requests.post(f"{self._base_url}/add_book", data=data)

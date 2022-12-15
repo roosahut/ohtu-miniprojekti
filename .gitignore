@@ -8,3 +8,4 @@ report.html
 .env
 .env.save
 bibtex.bib
+selenium-screenshot*

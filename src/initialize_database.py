@@ -1,8 +1,8 @@
 from db import db
 from app import app
 
-app = app
-app.app_context().push()
+application = app
+application.app_context().push()
 
 
 def create_tables():
@@ -54,7 +54,7 @@ def create_tables():
             year INTEGER
         );
     """)
-    
+
     db.session.commit()
 
 
