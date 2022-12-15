@@ -58,7 +58,7 @@ def add_masterthesis(user, ref_key, author, title, school, year):
 def get_articles(user_id, ref_key, search):
     try:
         sql = ('SELECT * FROM articles WHERE user_id=:user_id AND ref_key LIKE :ref_key '
-        'AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR journal LIKE :search')
+        'AND (title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR journal LIKE :search)')
         articles = db.session.execute(
             sql, {'user_id': user_id, 'ref_key': '%' + ref_key + '%', 
                   'search': '%' + search + '%'}).fetchall()
@@ -70,7 +70,7 @@ def get_articles(user_id, ref_key, search):
 def get_books(user_id, ref_key, search):
     try:
         sql = ('SELECT * FROM books WHERE user_id=:user_id AND ref_key LIKE :ref_key '
-        'AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR publisher LIKE :search')
+        'AND (title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR publisher LIKE :search)')
         books = db.session.execute(
             sql, {'user_id': user_id, 'ref_key': '%' + ref_key + '%',
                   'search': '%' + search + '%'}).fetchall()
@@ -82,7 +82,7 @@ def get_books(user_id, ref_key, search):
 def get_inproceedings(user_id, ref_key, search):
     try:
         sql = ('SELECT * FROM inproceedings WHERE user_id=:user_id AND'
-        ' ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR booktitle LIKE :search')
+        ' ref_key LIKE :ref_key AND (title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR booktitle LIKE :search)')
         inproceedings = db.session.execute(
             sql, {'user_id': user_id, 'ref_key': '%' + ref_key + '%',
                   'search': '%' + search + '%'}).fetchall()
@@ -94,7 +94,7 @@ def get_inproceedings(user_id, ref_key, search):
 def get_master_thesis(user_id, ref_key, search):
     try:
         sql = ('SELECT * FROM masterthesis WHERE user_id=:user_id AND'
-        ' ref_key LIKE :ref_key AND title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR school LIKE :search')
+        ' ref_key LIKE :ref_key AND (title LIKE :search OR ref_key LIKE :search OR author LIKE :search OR school LIKE :search)')
         masterthesis = db.session.execute(
             sql, {'user_id': user_id, 'ref_key': '%' + ref_key + '%',
                   'search': '%' + search + '%'}).fetchall()
