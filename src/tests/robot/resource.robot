@@ -59,12 +59,3 @@ Go To Inproceedings Page
 Go To References Page
     Go To  ${REFERENCES URL}
 
-# Input Book
-#     [Arguments]  ${reference}  ${author}  ${name}  ${publisher}  ${year}  
-#     Input  ${reference}
-#     Input  ${author}
-#     Input  ${name}
-#     Input  ${publisher}
-#     Input  ${year}
-#     Run Application
-
