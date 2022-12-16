@@ -20,6 +20,7 @@ Kohtuullinen testikattavuus
 [![codecov](https://codecov.io/gh/roosahut/ohtu-miniprojekti/branch/master/graph/badge.svg?token=Um66kxj2Ox)](https://codecov.io/gh/roosahut/ohtu-miniprojekti)
 
 ## Dokumentaatio
+- [Testikattavuusraportti](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/coverage_report.png)
 - [Käyttöohje](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/instructions.md)<br>
 - [Retrospektiivi sprintti 1](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/retro1.md)<br>
 - [Retrospektiivi sprintti 2](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/retro2.md)<br>
