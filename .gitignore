@@ -7,5 +7,5 @@ log.html
 report.html
 .env
 .env.save
-bibtex.bib
+*.bib
 selenium-screenshot*
