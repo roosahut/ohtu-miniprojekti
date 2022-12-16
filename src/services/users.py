@@ -10,12 +10,11 @@ def login(username, password):
     user = result.fetchone()
     if not user:
         return False
-    else:
-        if check_password_hash(user[1], password):
-            session['user_id'] = user[0]
-            session['user_name'] = user[2]
-            session['csrf_token'] = os.urandom(16).hex()
-            return True
+    if check_password_hash(user[1], password):
+        session['user_id'] = user[0]
+        session['user_name'] = user[2]
+        session['csrf_token'] = os.urandom(16).hex()
+        return True
 
 
 def register(username, password):

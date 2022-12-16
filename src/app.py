@@ -38,21 +38,36 @@ def reqister():
     if request.method == 'POST':
         username = request.form['username']
         if len(username) < 4:
-            return render_template('error.html', message='Username is too short, it should be at least 4 characters long')
+            return render_template(
+                'error.html',
+                message='Username is too short, it should be at least 4 characters long'
+            )
         characters = string.ascii_letters + string.digits + 'äåöÄÅÖ'
         for i in username:
             if i not in characters:
-                return render_template('error.html', message='Username must have only letters and numbers in it')
+                return render_template(
+                    'error.html',
+                    message='Username must have only letters and numbers in it'
+                )
 
         password1 = request.form['password1']
         password2 = request.form['password2']
         if password1 != password2:
-            return render_template('error.html', message='The passwords are not the same')
+            return render_template(
+                'error.html',
+                message='The passwords are not the same'
+            )
         if len(password1) < 8:
-            return render_template('error.html', message='Password is too short')
+            return render_template(
+                'error.html',
+                message='Password is too short'
+            )
 
         if not users.register(username, password1):
-            return render_template('error.html', message='The registration was unsuccesful, try a different username')
+            return render_template(
+                'error.html',
+                message='The registration was unsuccesful, try a different username'
+            )
 
         return redirect('/')
 
@@ -75,14 +90,20 @@ def add_book():
     if request.method == "POST":
         ref_key = request.form['ref_key']
         if ref.find_refkey(users.user_id(), ref_key):
-            return render_template('error.html', message='You already have a reference with this key.')
+            return render_template(
+                'error.html',
+                message='You already have a reference with this key.'
+            )
         author = request.form['author']
         title = request.form['title']
         publisher = request.form['publisher']
         year = request.form['year']
 
         if not ref.add_book(users.user_id(), ref_key, author, title, publisher, year):
-            return render_template('error.html', message='Reference adding failed, try again')
+            return render_template(
+                'error.html',
+                message='Reference adding failed, try again'
+            )
 
         return redirect('/')
 
@@ -92,7 +113,10 @@ def add_article():
     if request.method == "POST":
         ref_key = request.form['ref_key']
         if ref.find_refkey(users.user_id(), ref_key):
-            return render_template('error.html', message='You already have a reference with this key.')
+            return render_template(
+                'error.html',
+                message='You already have a reference with this key.'
+            )
         author = request.form['author']
         title = request.form['title']
         journal = request.form['journal']
@@ -100,7 +124,10 @@ def add_article():
         volume = request.form['volume']
 
         if not ref.add_article(users.user_id(), ref_key, author, title, journal, year, volume):
-            return render_template('error.html', message='Reference adding failed, try again')
+            return render_template(
+                'error.html',
+                message='Reference adding failed, try again'
+            )
 
         return redirect('/')
 
@@ -110,14 +137,20 @@ def add_masterthesis():
     if request.method == "POST":
         ref_key = request.form['ref_key']
         if ref.find_refkey(users.user_id(), ref_key):
-            return render_template('error.html', message='You already have a reference with this key.')
+            return render_template(
+                'error.html',
+                message='You already have a reference with this key.'
+            )
         author = request.form['author']
         title = request.form['title']
         school = request.form['school']
         year = request.form['year']
 
         if not ref.add_masterthesis(users.user_id(), ref_key, author, title, school, year):
-            return render_template('error.html', message='Reference adding failed, try again')
+            return render_template(
+                'error.html',
+                message='Reference adding failed, try again'
+            )
 
         return redirect('/')
 
@@ -127,14 +160,20 @@ def add_inproceedings():
     if request.method == "POST":
         ref_key = request.form['ref_key']
         if ref.find_refkey(users.user_id(), ref_key):
-            return render_template('error.html', message='You already have a reference with this key.')
+            return render_template(
+                'error.html',
+                message='You already have a reference with this key.'
+            )
         author = request.form['author']
         title = request.form['title']
         booktitle = request.form['booktitle']
         year = request.form['year']
 
         if not ref.add_inproceedings(users.user_id(), ref_key, author, title, booktitle, year):
-            return render_template('error.html', message='Reference adding failed, try again')
+            return render_template(
+                'error.html',
+                message='Reference adding failed, try again'
+            )
 
         return redirect('/')
 
@@ -147,7 +186,13 @@ def view_references():
         inproceedings = ref.get_inproceedings(users.user_id(), "", "")
         master_thesis = ref.get_master_thesis(users.user_id(), "", "")
 
-        return render_template('view_references.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
+        return render_template(
+            'view_references.html',
+            articles=articles,
+            books=books,
+            inproceedings=inproceedings,
+            master_thesis=master_thesis
+        )
 
     if request.method == "POST":
         search = request.form['search']
@@ -156,7 +201,13 @@ def view_references():
         inproceedings = ref.get_inproceedings(users.user_id(), "", search)
         master_thesis = ref.get_master_thesis(users.user_id(), "", search)
 
-        return render_template('view_references.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
+        return render_template(
+            'view_references.html',
+            articles=articles,
+            books=books,
+            inproceedings=inproceedings,
+            master_thesis=master_thesis
+        )
 
 
 @app.route('/logout')
@@ -174,7 +225,13 @@ def view_bibtex():
         inproceedings = ref.get_inproceedings(users.user_id(), "", "")
         master_thesis = ref.get_master_thesis(users.user_id(), "", "")
 
-        return render_template('view_bibtex.html', articles=articles, books=books, inproceedings=inproceedings, master_thesis=master_thesis)
+        return render_template(
+            'view_bibtex.html',
+            articles=articles,
+            books=books,
+            inproceedings=inproceedings,
+            master_thesis=master_thesis
+        )
 
 
 @app.post('/create_bibtex')
@@ -182,11 +239,20 @@ def create_bibtex():
     file_name = request.form['file_name']
     ref_keys = request.form.getlist("check")
     if len(ref_keys) == 0:
-        return render_template('error.html', message='You have to choose at least one reference.')
+        return render_template(
+            'error.html',
+            message='You have to choose at least one reference.'
+        )
     if not file_name:
-        return render_template('error.html', message='You have to write the filename.')
+        return render_template(
+            'error.html',
+            message='You have to write the filename.'
+        )
     if not ref.add_references_to_file(users.user_id(), ref_keys):
-        return render_template('error.html', message='Error creating the file.')
+        return render_template(
+            'error.html',
+            message='Error creating the file.'
+        )
     download_name = f'{file_name}.bib'
     return send_file('bibtex.bib', download_name=download_name, as_attachment=True)
 
