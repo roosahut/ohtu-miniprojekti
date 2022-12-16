@@ -21,7 +21,9 @@ Kohtuullinen testikattavuus
 
 ## Dokumentaatio
 - [Käyttöohje](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/instructions.md)<br>
-- [Retro1](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/retro1.md)<br>
+- [Retrospektiivi sprintti 1](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/retro1.md)<br>
+- [Retrospektiivi sprintti 2](https://github.com/roosahut/ohtu-miniprojekti/blob/master/documentation/retro2.md)<br>
+
 
 ## Komentorivitoiminnot
 <h2>Huom!</h2> 
