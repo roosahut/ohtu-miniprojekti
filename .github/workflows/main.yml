@@ -59,3 +59,5 @@ jobs:
           DATABASE_URL: postgresql://postgres:postgres@localhost/postgres
           SECRET_KEY: 95d3763bb55e744e77dd181a47b4e1c9
           FLASK_DEBUG: development
+      - name: Run pylint tests
+        run: poetry run pylint src
