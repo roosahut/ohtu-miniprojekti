@@ -1,5 +1,7 @@
 # Keltaisen ryhmän Ohtu -miniprojekti repo
 
+[Raportti](https://docs.google.com/document/d/1yJQMCieVxRdCBH6c7ABhcSlrO3FX6fW6NKSTdfrQ_Yw/edit?usp=sharing)
+
 [Product backlog](https://docs.google.com/spreadsheets/d/e/2PACX-1vTBRvMHFcpm47yrNZhur4q50_rPGXJ9hRW-U_Ia8FFg1hVNZNbn1Q6GyrQVcuvJ6rLPPdnbpsfF2DFl/pubhtml)
 
 [Linkki sovellukseen](https://ohtu-references.fly.dev/)
