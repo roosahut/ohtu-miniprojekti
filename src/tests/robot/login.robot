@@ -7,14 +7,14 @@ Test Setup  Create User And Go To Login Page
 
 *** Test Cases ***
 Login With Correct Credentials
-    Set Username  mikko
-    Set Password  mikko6969
+    Set Username  jaakko
+    Set Password  jaakko6969
     Submit Credentials
     Login Should Succeed
 
 Login With Incorrect Password
-    Set Username  mikko
-    Set Password  mikko4200
+    Set Username  jaakko
+    Set Password  jaakko4200
     Submit Credentials
     Login Should Fail With Message  Wrong username or password
 
@@ -26,6 +26,6 @@ Login With Nonexistent Username
 
 *** Keywords ***
 Create User And Go To Login Page
-    Create User  mikko  mikko6969
+    Create User  jaakko  jaakko6969
     Go To Login Page
     Login Page Should Be Open

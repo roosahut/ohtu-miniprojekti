@@ -37,3 +37,4 @@ ohjelma ei toimi.</pre></h3>
 - Riippuvuudet asennetaan komennolla: <h3><pre>poetry install</pre></h3>
 
 - Ohjelma käynnistyy komennolla: <h3><pre>poetry run invoke start</pre></h3>
+
